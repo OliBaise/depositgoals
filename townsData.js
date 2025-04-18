@@ -3569,7 +3569,7 @@ const townsData = {
   "2027": { "price": 143930, "deposit": 28786, "monthly": 800 },
   "2026": { "price": 140465, "deposit": 28093, "monthly": 1171 }
 },
-}
+};
 
  
 
