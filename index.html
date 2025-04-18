@@ -11,25 +11,7 @@
   <div class="container">
     <h1>Deposit Goals</h1>
     <p>Find out how much you need to save to buy a home in your town before your selected age.</p>
-<h2>How It Works</h2>
 
-<p>For every area listed we went to the HM Land Registry to see:</p>
-
-<ul>
-  <li>What the house price for first time buyers was in each of the 200 largest cities, towns, and districts.</li>
-  <li>How much house prices had risen in the last 17 years (March 2008 - March 2025).</li>
-</ul>
-
-<p>We then projected this forward to account for what house prices would likely be in each area from 2026 - 2042.</p>
-
-<p>This means that for an 18 year old looking to buy at 35, we are looking at house prices in 2042. For a 25 year old looking to buy at 30, we are looking at house prices in 2030, etc.</p>
-
-<p>We then multiplied each of these numbers by 0.2 to come up with the typical 20% deposit that a first time buyer puts down on their property (this 20% figure comes from a 2024 report from the bank Halifax).</p>
-
-<p>We then divided this number by the number of months that passes between your age and the age you want to buy.</p>
-
-<p>For example, if someone started saving from 18-35, then the number was divided by 204 (17*12). Similarly, if someone started saving from 23-35, then the number was divided by 108 (9*12).</p>
-    
     <form id="calculator">
       <label for="town">Your town or city:</label>
       <select id="town" required>
@@ -83,6 +65,27 @@
     </form>
 
     <div id="result"></div>
+<div id="how-it-works">
+    <h2>How It Works</h2>
+
+<p>For every area listed we went to the HM Land Registry to see:</p>
+
+<ul>
+  <li>What the house price for first time buyers was in each of the 200 largest cities, towns, and districts.</li>
+  <li>How much house prices had risen in the last 17 years (March 2008 - March 2025).</li>
+</ul>
+
+<p>We then projected this forward to account for what house prices would likely be in each area from 2026 - 2042.</p>
+
+<p>This means that for an 18 year old looking to buy at 35, we are looking at house prices in 2042. For a 25 year old looking to buy at 30, we are looking at house prices in 2030, etc.</p>
+
+<p>We then multiplied each of these numbers by 0.2 to come up with the typical 20% deposit that a first time buyer puts down on their property (this 20% figure comes from a 2024 report from the bank Halifax).</p>
+
+<p>We then divided this number by the number of months that passes between your age and the age you want to buy.</p>
+
+<p>For example, if someone started saving from 18-35, then the number was divided by 204 (17*12). Similarly, if someone started saving from 23-35, then the number was divided by 108 (9*12).</p>
+</div> 
+
   </div>
 
   <script src="app.js"></script>
