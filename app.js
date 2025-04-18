@@ -3572,20 +3572,6 @@ const townsData = {
 }
 
  
-document.addEventListener("DOMContentLoaded", function () {
-  const townSelect = document.getElementById("town");
-  const towns = Object.keys(townsData).sort();
-
-  // Clear existing options and add towns
-  townSelect.innerHTML = `<option value="">Select your town or city</option>`;
-  towns.forEach(town => {
-    const option = document.createElement("option");
-    option.value = town;
-    option.textContent = town;
-    townSelect.appendChild(option);
-  });
-});
-
 document.getElementById("calculator").addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -3595,7 +3581,7 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
   
   // If the savings field is empty, set it to 0
   const savings = document.getElementById("savings").value ? parseFloat(document.getElementById("savings").value) : 0;
-  
+
   const townData = townsData[town];
 
   if (!townData) {
@@ -3603,11 +3589,14 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
     return;
   }
 
-  // Calculate the target year based on the difference between the current age and the target age
-  const currentYear = new Date().getFullYear(); // Use the current year dynamically
-  const targetYear = currentYear + (targetAge - currentAge); // Target year is based on current age and target age
+  // Insert "How it works" section at the top
+  const howItWorksHtml = document.getElementById("how-it-works").innerHTML;
 
-  // If the target year is beyond 2042, set it to 2042 (this will prevent the error for non-existent data)
+  // Calculate the current year and target year (should not go beyond 2037)
+  const currentYear = 2025 + (currentAge - 18);  // Assuming 18 is 2025, adjust this based on your data
+  let targetYear = 2025 + (targetAge - 18);
+
+  // If the target year is beyond 2037, set it to 2037 (this will prevent the error for non-existent data)
   if (targetYear > 2042) {
     targetYear = 2042;
   }
@@ -3617,7 +3606,9 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
 
   // If no projection exists for the target year, show an error
   if (!projection) {
-    document.getElementById("result").innerHTML = `<p style="color:red;">No data for year ${targetYear} in ${town}.</p>`;
+    document.getElementById("result").innerHTML = `
+      <div>${howItWorksHtml}</div>
+      <p style="color:red;">No data for year ${targetYear} in ${town}.</p>`;
     return;
   }
 
@@ -3626,17 +3617,18 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
   const remaining = deposit - savings;
   const monthlyTarget = Math.max(remaining / monthsToSave, 0).toFixed(2);
 
-  // Display the result
+  // Display the result with "How it works" above it
   document.getElementById("result").innerHTML = `
+    <div>${howItWorksHtml}</div>
     <h2>Projection for ${town}</h2>
     <p>Projected house price at year ${targetYear}: £${projection.price.toLocaleString()}</p>
     <p>Deposit needed (20%): £${deposit.toLocaleString()}</p>
     <p>Your current savings: £${savings.toLocaleString()}</p>
-    <p>Remaining deposit to save: £${remaining.toLocaleString()}</p>
     <p>Months left until year ${targetYear}: ${monthsToSave}</p>
     <p><strong>You need to save £${monthlyTarget}/month to reach your deposit goal by ${targetYear}.</strong></p>
   `;
 });
+
 
 
 
