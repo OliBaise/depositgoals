@@ -3572,13 +3572,27 @@ const townsData = {
 }
 
  
+document.addEventListener("DOMContentLoaded", function () {
+  const townSelect = document.getElementById("town");
+  const towns = Object.keys(townsData).sort();
+
+  // Clear existing options and add towns
+  townSelect.innerHTML = `<option value="">Select your town or city</option>`;
+  towns.forEach(town => {
+    const option = document.createElement("option");
+    option.value = town;
+    option.textContent = town;
+    townSelect.appendChild(option);
+  });
+});
+
 document.getElementById("calculator").addEventListener("submit", function (e) {
   e.preventDefault();
 
   const town = document.getElementById("town").value;
   const currentAge = parseInt(document.getElementById("age").value);
   const targetAge = parseInt(document.getElementById("targetAge").value);
-  
+
   // If the savings field is empty, set it to 0
   const savings = document.getElementById("savings").value ? parseFloat(document.getElementById("savings").value) : 0;
 
