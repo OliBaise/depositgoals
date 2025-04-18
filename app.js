@@ -62,7 +62,7 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
     <p>Your current savings: £${savings.toLocaleString()}</p>
     <p>Months left until ${targetYear}: ${monthsToSave}</p>
     <p><strong>Remaining deposit to save: £${remaining.toLocaleString()}</strong></p>
-    <p><strong>You need to save £${monthlyTarget} per month to reach your deposit goal by ${targetYear} ( £${remaining.toLocaleString()}/${monthsToSave})</strong></p>
+    <p><strong>You need to save £${monthlyTarget} per month to reach your deposit goal by ${targetYear} (£${remaining.toLocaleString()}/${monthsToSave})</strong></p>
   `;
 });
 
