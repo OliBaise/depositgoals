@@ -3604,12 +3604,12 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
   // Calculate the current year based on the current age (assuming 2025 as the reference for age 18)
   const currentYear = 2025
   
-  // Calculate the target year based on the current and target age
-  const targetYear = currentYear + (targetAge - currentAge);
+ let targetYear = currentYear + (targetAge - currentAge);
 
-  // If the target year is beyond the available data (e.g., beyond 2042), set it to 2042
-  if (targetYear > 2042) {
-    targetYear = 2042;
+// If the target year is beyond the available data (e.g., beyond 2042), set it to 2042
+if (targetYear > 2042) {
+  targetYear = 2042;
+}
   }
 
   const projection = townData[targetYear];
