@@ -3572,20 +3572,6 @@ const townsData = {
 }
 
  
-document.addEventListener("DOMContentLoaded", function () {
-  const townSelect = document.getElementById("town");
-  const towns = Object.keys(townsData).sort();
-
-  // Clear existing options and add towns
-  townSelect.innerHTML = `<option value="">Select your town or city</option>`;
-  towns.forEach(town => {
-    const option = document.createElement("option");
-    option.value = town;
-    option.textContent = town;
-    townSelect.appendChild(option);
-  });
-});
-
 document.getElementById("calculator").addEventListener("submit", function (e) {
   e.preventDefault();
 
