@@ -1,0 +1,93 @@
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container for the entire form */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styles */
+h1, h2 {
+  color: #2c3e50;
+  text-align: center;
+}
+
+/* Form elements */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+input, select {
+  padding: 12px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  background-color: #3498db;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+input[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+/* Result section */
+#result {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #ecf0f1;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#result h2 {
+  margin-top: 0;
+  font-size: 22px;
+  color: #34495e;
+}
+
+#result p {
+  font-size: 18px;
+  color: #555;
+}
+
+#result p strong {
+  font-weight: bold;
+  color: #2ecc71;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+    width: 90%;
+  }
+
+  input, select {
+    font-size: 14px;
+  }
+}
