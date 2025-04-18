@@ -3587,14 +3587,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.getElementById("calculator").addEventListener("submit", function (e) {
-  e.preventDefault();
+  e.preventDefault();  // Prevent form submission from resetting the page
 
   const town = document.getElementById("town").value;
   const currentAge = parseInt(document.getElementById("age").value);
   const targetAge = parseInt(document.getElementById("targetAge").value);
-
-  // If the savings field is empty, set it to 0
-  const savings = document.getElementById("savings").value ? parseFloat(document.getElementById("savings").value) : 0;
+  const savings = parseFloat(document.getElementById("savings").value) || 0; // Default to 0 if empty
 
   const townData = townsData[town];
 
@@ -3603,14 +3601,11 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
     return;
   }
 
-  // Insert "How it works" section at the top
-  const howItWorksHtml = document.getElementById("how-it-works").innerHTML;
-
-  // Calculate the current year and target year (should not go beyond 2037)
+  // Calculate the current year and target year
   const currentYear = 2025 + (currentAge - 18);  // Assuming 18 is 2025, adjust this based on your data
   let targetYear = 2025 + (targetAge - 18);
 
-  // If the target year is beyond 2037, set it to 2037 (this will prevent the error for non-existent data)
+  // If the target year is beyond 2037, set it to 2042 (limit to available data)
   if (targetYear > 2042) {
     targetYear = 2042;
   }
@@ -3618,11 +3613,8 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
   // Get the data for the target year
   const projection = townData[targetYear];
 
-  // If no projection exists for the target year, show an error
   if (!projection) {
-    document.getElementById("result").innerHTML = `
-      <div>${howItWorksHtml}</div>
-      <p style="color:red;">No data for year ${targetYear} in ${town}.</p>`;
+    document.getElementById("result").innerHTML = `<p style="color:red;">No data for year ${targetYear} in ${town}.</p>`;
     return;
   }
 
@@ -3631,9 +3623,8 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
   const remaining = deposit - savings;
   const monthlyTarget = Math.max(remaining / monthsToSave, 0).toFixed(2);
 
-  // Display the result with "How it works" above it
+  // Display the result
   document.getElementById("result").innerHTML = `
-    <div>${howItWorksHtml}</div>
     <h2>Projection for ${town}</h2>
     <p>Projected house price at year ${targetYear}: £${projection.price.toLocaleString()}</p>
     <p>Deposit needed (20%): £${deposit.toLocaleString()}</p>
