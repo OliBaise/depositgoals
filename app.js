@@ -3587,12 +3587,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.getElementById("calculator").addEventListener("submit", function (e) {
-  e.preventDefault();  // Prevent form submission from resetting the page
+  e.preventDefault();
 
   const town = document.getElementById("town").value;
   const currentAge = parseInt(document.getElementById("age").value);
   const targetAge = parseInt(document.getElementById("targetAge").value);
-  const savings = parseFloat(document.getElementById("savings").value) || 0; // Default to 0 if empty
+  const savings = parseFloat(document.getElementById("savings").value) || 0;
 
   const townData = townsData[town];
 
@@ -3601,16 +3601,17 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
     return;
   }
 
-  // Calculate the current year and target year
-  const currentYear = 2025 + (currentAge - 18);  // Assuming 18 is 2025, adjust this based on your data
-  let targetYear = 2025 + (targetAge - 18);
+  // Calculate the current year based on the current age (assuming 2025 as the reference for age 18)
+  const currentYear = 2025
+  
+  // Calculate the target year based on the current and target age
+  const targetYear = currentYear + (targetAge - currentAge);
 
-  // If the target year is beyond 2037, set it to 2042 (limit to available data)
+  // If the target year is beyond the available data (e.g., beyond 2042), set it to 2042
   if (targetYear > 2042) {
     targetYear = 2042;
   }
 
-  // Get the data for the target year
   const projection = townData[targetYear];
 
   if (!projection) {
@@ -3619,21 +3620,24 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
   }
 
   const deposit = projection.deposit;
-  const monthsToSave = (targetYear - currentYear) * 12; // Time to save until target year
+  const monthsToSave = (targetYear - currentYear) * 12;  // Time to save until the target year
   const remaining = deposit - savings;
   const monthlyTarget = Math.max(remaining / monthsToSave, 0).toFixed(2);
 
-  // Display the result
-  document.getElementById("result").innerHTML = `
+  // Show results
+  const resultDiv = document.getElementById("result");
+  resultDiv.style.display = "block";  // Show the result div
+
+  resultDiv.innerHTML = `
     <h2>Projection for ${town}</h2>
     <p>Projected house price at year ${targetYear}: £${projection.price.toLocaleString()}</p>
     <p>Deposit needed (20%): £${deposit.toLocaleString()}</p>
     <p>Your current savings: £${savings.toLocaleString()}</p>
-    <p>Months left until year ${targetYear}: ${monthsToSave}</p>
-    <p><strong>You need to save £${monthlyTarget}/month to reach your deposit goal by ${targetYear}.</strong></p>
+    <p>Months left until ${targetYear}: ${monthsToSave}</p>
+    <p><strong>Remaining deposit to save: £${remaining.toLocaleString()}</strong></p>
+    <p><strong>You need to save £${monthlyTarget} per month to reach your deposit goal by ${targetYear} ( £${remaining.toLocaleString()}/${monthsToSave})</strong></p>
   `;
 });
-
 
 
 
