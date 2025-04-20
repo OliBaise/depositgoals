@@ -1,18 +1,3 @@
-
- document.addEventListener("DOMContentLoaded", function () {
-  const townSelect = document.getElementById("town");
-  const towns = Object.keys(townsData).sort();
-
-  // Clear existing options and add towns
-  townSelect.innerHTML = `<option value="">Select your town or city</option>`;
-  towns.forEach(town => {
-    const option = document.createElement("option");
-    option.value = town;
-    option.textContent = town;
-    townSelect.appendChild(option);
-  });
-});
-
 document.getElementById("calculator").addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -20,7 +5,7 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
   const currentAge = parseInt(document.getElementById("age").value);
   const targetAge = parseInt(document.getElementById("targetAge").value);
   const savings = parseFloat(document.getElementById("savings").value) || 0;
-  const depositPercentage = parseFloat(document.getElementById("depositPercentage").value); // NEW
+  const depositPercentage = parseFloat(document.getElementById("depositPercentage").value); // ← this is used below
 
   const townData = townsData[town];
 
@@ -44,7 +29,7 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
   }
 
   const housePrice = projection.price;
-  const deposit = housePrice * (depositPercentage / 100); // now calculated dynamically
+  const deposit = housePrice * (depositPercentage / 100); // ✅ this replaces projection.deposit
   const monthsToSave = (targetYear - currentYear) * 12;
   const remaining = deposit - savings;
   const monthlyTarget = Math.max(remaining / monthsToSave, 0).toFixed(2);
@@ -56,52 +41,3 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
     <h2>Projection for ${town}</h2>
     <p>Projected house price at year ${targetYear}: £${housePrice.toLocaleString()}</p>
     <p>Deposit needed (${depositPercentage}%): £${deposit.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
-    <p>Your current savings: £${savings.toLocaleString()}</p>
-    <p>Months left until ${targetYear}: ${monthsToSave}</p>
-    <p><strong>Remaining deposit to save: £${remaining.toLocaleString(undefined, { maximumFractionDigits: 0 })}</strong></p>
-    <p><strong>You need to save £${monthlyTarget} per month to reach your deposit goal by ${targetYear} (£${remaining.toLocaleString(undefined, { maximumFractionDigits: 0 })}/${monthsToSave})</strong></p>
-  `;
-});
-
-
-
-  
- 
-  
-
- 
-  
- 
- 
- 
-  
-
-
-
-  
-  
- 
-
-  
-  
- 
-  
- 
-  
-
-
- 
-
-
-
-
- 
- 
- 
- 
-  
- 
-
- 
-
-  
