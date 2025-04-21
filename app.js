@@ -1,3 +1,24 @@
+// Populate dropdown on page load
+document.addEventListener("DOMContentLoaded", function () {
+  const townSelect = document.getElementById("town");
+
+  if (typeof townsdata === "undefined") {
+    console.error("❌ townsdata is not defined. Check if townsdata.js is loaded correctly.");
+    return;
+  }
+
+  const towns = Object.keys(townsdata).sort();
+  townSelect.innerHTML = `<option value="">Select your town or city</option>`;
+
+  towns.forEach(town => {
+    const option = document.createElement("option");
+    option.value = town;
+    option.textContent = town;
+    townSelect.appendChild(option);
+  });
+});
+
+// Handle form submission
 document.getElementById("calculator").addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -7,9 +28,9 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
   const savings = parseFloat(document.getElementById("savings").value) || 0;
   const depositPercentage = parseFloat(document.getElementById("depositPercentage").value);
 
-const townData = townsdata[town];
+  const townData = townsdata[town]; // ✅ correct: don't overwrite the global
 
-  if (!townsdata) {
+  if (!townData) {
     document.getElementById("result").innerHTML = `<p style="color:red;">No data for town ${town}.</p>`;
     return;
   }
@@ -21,7 +42,7 @@ const townData = townsdata[town];
     targetYear = 2042;
   }
 
-  const projection = townsdata[targetYear]; // ✅ corrected reference
+  const projection = townData[targetYear];
 
   if (!projection) {
     document.getElementById("result").innerHTML = `<p style="color:red;">No data for year ${targetYear} in ${town}.</p>`;
