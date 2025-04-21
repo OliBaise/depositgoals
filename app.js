@@ -5,11 +5,11 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
   const currentAge = parseInt(document.getElementById("age").value);
   const targetAge = parseInt(document.getElementById("targetAge").value);
   const savings = parseFloat(document.getElementById("savings").value) || 0;
-  const depositPercentage = parseFloat(document.getElementById("depositPercentage").value); // ✅ added this
+  const depositPercentage = parseFloat(document.getElementById("depositPercentage").value);
 
-const townsData = townsData[town];
+  const townData = townsdata[town]; // ✅ use correct variable name and a new one
 
-  if (!townsData) {
+  if (!townData) {
     document.getElementById("result").innerHTML = `<p style="color:red;">No data for town ${town}.</p>`;
     return;
   }
@@ -21,7 +21,7 @@ const townsData = townsData[town];
     targetYear = 2042;
   }
 
-  const projection = townsData[targetYear];
+  const projection = townData[targetYear]; // ✅ corrected reference
 
   if (!projection) {
     document.getElementById("result").innerHTML = `<p style="color:red;">No data for year ${targetYear} in ${town}.</p>`;
@@ -29,7 +29,7 @@ const townsData = townsData[town];
   }
 
   const housePrice = projection.price;
-  const deposit = housePrice * (depositPercentage / 100); // ✅ dynamic deposit
+  const deposit = housePrice * (depositPercentage / 100);
   const monthsToSave = (targetYear - currentYear) * 12;
   const remaining = deposit - savings;
   const monthlyTarget = Math.max(remaining / monthsToSave, 0).toFixed(2);
