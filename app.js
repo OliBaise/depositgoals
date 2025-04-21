@@ -7,9 +7,9 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
   const savings = parseFloat(document.getElementById("savings").value) || 0;
   const depositPercentage = parseFloat(document.getElementById("depositPercentage").value);
 
-  const townData = townsdata[town]; // ✅ use correct variable name and a new one
+  const towndata = townsdata[town]; // ✅ use correct variable name and a new one
 
-  if (!townData) {
+  if (!towndata) {
     document.getElementById("result").innerHTML = `<p style="color:red;">No data for town ${town}.</p>`;
     return;
   }
@@ -21,7 +21,7 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
     targetYear = 2042;
   }
 
-  const projection = townData[targetYear]; // ✅ corrected reference
+  const projection = towndata[targetYear]; // ✅ corrected reference
 
   if (!projection) {
     document.getElementById("result").innerHTML = `<p style="color:red;">No data for year ${targetYear} in ${town}.</p>`;
