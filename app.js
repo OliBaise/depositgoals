@@ -7,7 +7,7 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
   const savings = parseFloat(document.getElementById("savings").value) || 0;
   const depositPercentage = parseFloat(document.getElementById("depositPercentage").value); // ✅ added this
 
-  const townsData = townsData[town];
+const townData = townsData[town];
 
   if (!townsData) {
     document.getElementById("result").innerHTML = `<p style="color:red;">No data for town ${town}.</p>`;
