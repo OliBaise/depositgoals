@@ -7,7 +7,7 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
   const savings = parseFloat(document.getElementById("savings").value) || 0;
   const depositPercentage = parseFloat(document.getElementById("depositPercentage").value);
 
-  const townsdata = townsdata[town]; // ✅ use correct variable name and a new one
+const townData = townsdata[town];
 
   if (!townsdata) {
     document.getElementById("result").innerHTML = `<p style="color:red;">No data for town ${town}.</p>`;
