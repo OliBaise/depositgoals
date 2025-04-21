@@ -1,4 +1,4 @@
-const townsData = {
+const townsdata = {
  "London": {
   "2042": { "price": 985578, "deposit": 197116, "monthly": 913 },
   "2041": { "price": 947404, "deposit": 189481, "monthly": 929 },
