@@ -54,6 +54,7 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
   const monthsToSave = (targetYear - currentYear) * 12;
   const remaining = deposit - savings;
   const monthlyTarget = Math.max(remaining / monthsToSave, 0).toFixed(2);
+  const requiredSalary = ((housePrice - deposit) / 4.5).toFixed(0);
 
   const resultDiv = document.getElementById("result");
   resultDiv.style.display = "block";
@@ -66,5 +67,6 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
     <p>Months left until ${targetYear}: ${monthsToSave}</p>
     <p><strong>Remaining deposit to save: £${remaining.toLocaleString(undefined, { maximumFractionDigits: 0 })}</strong></p>
     <p><strong>You need to save £${monthlyTarget} per month to reach your deposit goal by ${targetYear} (£${remaining.toLocaleString(undefined, { maximumFractionDigits: 0 })}/${monthsToSave})</strong></p>
+    <p><strong>Estimated salary needed to afford this home: £${Number(requiredSalary).toLocaleString()}</strong></p>
   `;
 });
