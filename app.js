@@ -28,7 +28,7 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
   const savings = parseFloat(document.getElementById("savings").value) || 0;
   const depositPercentage = parseFloat(document.getElementById("depositPercentage").value);
 
-  const townData = townsdata[town]; // ✅ correct: don't overwrite the global
+  const townData = townsdata[town];
 
   if (!townData) {
     document.getElementById("result").innerHTML = `<p style="color:red;">No data for town ${town}.</p>`;
@@ -54,7 +54,8 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
   const monthsToSave = (targetYear - currentYear) * 12;
   const remaining = deposit - savings;
   const monthlyTarget = Math.max(remaining / monthsToSave, 0).toFixed(2);
-  const requiredSalary = ((housePrice - deposit) / 4.5).toFixed(0);
+  const mortgageAmount = housePrice - deposit;
+  const requiredSalary = (mortgageAmount / 4.5).toFixed(0);
 
   const resultDiv = document.getElementById("result");
   resultDiv.style.display = "block";
@@ -67,7 +68,6 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
     <p>Months left until ${targetYear}: ${monthsToSave}</p>
     <p><strong>Remaining deposit to save: £${remaining.toLocaleString(undefined, { maximumFractionDigits: 0 })}</strong></p>
     <p><strong>You need to save £${monthlyTarget} per month to reach your deposit goal by ${targetYear} (£${remaining.toLocaleString(undefined, { maximumFractionDigits: 0 })}/${monthsToSave})</strong></p>
-       <p><strong>Estimated salary needed to afford this home: £${Number(requiredSalary).toLocaleString()}</strong></p>
-<p><strong>Estimated salary needed to afford this home: £${Number(requiredSalary).toLocaleString()}</strong> <br><small>(i.e. (£${mortgageAmount.toLocaleString()} ÷ 4.5))</small></p>
-  
+    <p><strong>Estimated salary needed to afford this home: £${Number(requiredSalary).toLocaleString()}</strong> <br><small>(i.e. (£${mortgageAmount.toLocaleString()} ÷ 4.5))</small></p>
+  `;
 });
