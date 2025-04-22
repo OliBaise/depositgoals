@@ -69,5 +69,5 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
     <p><strong>You need to save £${monthlyTarget} per month to reach your deposit goal by ${targetYear} (£${remaining.toLocaleString(undefined, { maximumFractionDigits: 0 })}/${monthsToSave})</strong></p>
        <p><strong>Estimated salary needed to afford this home: £${Number(requiredSalary).toLocaleString()}</strong></p>
 <p><strong>Estimated salary needed to afford this home: £${Number(requiredSalary).toLocaleString()}</strong> <br><small>(i.e. (£${mortgageAmount.toLocaleString()} ÷ 4.5))</small></p>
-  `;
+  
 });
