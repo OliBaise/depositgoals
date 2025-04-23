@@ -2670,7 +2670,7 @@ const townsdata = {
   "2026": { "price": 327819, "deposit": 65564, "monthly": 2732 }
 },
 
-  "Nuneaton and Bedford": {
+  "Nuneaton and Bedworth": {
   "2042": { "price": 340203, "deposit": 68041, "monthly": 315 },
   "2041": { "price": 332544, "deposit": 66509, "monthly": 326 },
   "2040": { "price": 324885, "deposit": 64977, "monthly": 338 },
