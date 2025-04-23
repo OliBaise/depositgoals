@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  const towns = Object.keys(townsdata).sort();
+const towns = Object.keys(townsdata).sort((a, b) => a.localeCompare(b));
   townSelect.innerHTML = `<option value="">Select your town or city</option>`;
 
   towns.forEach(town => {
