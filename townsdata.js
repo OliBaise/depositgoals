@@ -622,8 +622,7 @@ const townsdata = {
   "2026": { "price": 136129, "deposit": 27226, "monthly": 1134 }
 },
 
-  "Wolverhampton": {
-  "ExampleTown33": {
+  "Wolverhampton": 
   "2042": { "price": 302407, "deposit": 60481, "monthly": 280 },
   "2041": { "price": 295736, "deposit": 59147, "monthly": 290 },
   "2040": { "price": 289065, "deposit": 57813, "monthly": 301 },
