@@ -19,7 +19,6 @@ const townsdata = {
   "2026": { "price": 534205, "deposit": 106841, "monthly": 4452 }
 },
 
-  
 "Birmingham": {
   "2042": { "price": 343923, "deposit": 68785, "monthly": 318 },
   "2041": { "price": 336104, "deposit": 67221, "monthly": 330 },
