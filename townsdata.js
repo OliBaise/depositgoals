@@ -791,7 +791,7 @@ const townsdata = {
   }
   },
   
-{
+
   "Manchester": {
     "2047": {
       "price": 500038,
