@@ -223,7 +223,7 @@ const townsdata = {
          "monthly": 1823
       }
    },
-   "Leeds":{
+   "Leeds": {
       "2047":{
          "price":371850,
          "deposit":74370,
