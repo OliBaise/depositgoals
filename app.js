@@ -40,8 +40,8 @@ document.getElementById("calculator").addEventListener("submit", function (e) {
   const currentYear = 2025;
   let targetYear = currentYear + (targetAge - currentAge);
 
-  if (targetYear > 2042) {
-    targetYear = 2042;
+  if (targetYear > 2047) {
+    targetYear = 2047;
   }
 
   const projection = townData[targetYear];
