@@ -1,4 +1,4 @@
-const townsdata = {
+"const townsdata" = {
   "London": {
   "2047": {
     "price": 1005623,
@@ -19837,5 +19837,5 @@ const townsdata = {
       "monthly": 1170
     }
   }
-  };
+  
 
