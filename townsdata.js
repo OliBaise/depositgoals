@@ -113,7 +113,7 @@ const townsdata = {
 },
 
   "Birmingham": {
-    " "2047": {
+    "2047": {
     "price": 351742,
     "deposit": 70348,
     "monthly": 255
