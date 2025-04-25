@@ -19837,4 +19837,4 @@ const townsdata = {
       "monthly": 1170
     }
   }
-}
+
