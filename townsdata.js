@@ -19836,5 +19836,5 @@ const townsdata = {
       "deposit": 28093,
       "monthly": 1170
     }
-  }
+  };
 
