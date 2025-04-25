@@ -223,3 +223,4 @@ const townsdata = {
          "monthly": 1823
       }
    }
+};
